@@ -27,7 +27,8 @@ android:orientation="vertical">
     android:background="@drawable/registration_background"
     android:drawableLeft="@drawable/ic_baseline_person_24"
     android:elevation="15dp"
-    android:padding="6dp" />
+    android:padding="6dp"
+    android:hint="@string/user"/>
 
 <EditText
     android:layout_width="match_parent"
@@ -38,7 +39,8 @@ android:orientation="vertical">
     android:background="@drawable/registration_background"
     android:drawableLeft="@drawable/ic_baseline_email_24"
     android:elevation="15dp"
-    android:padding="6dp"/>
+    android:padding="6dp"
+    android:hint="@string/email"/>
 
 <EditText
     android:layout_width="match_parent"
@@ -49,7 +51,8 @@ android:orientation="vertical">
     android:background="@drawable/registration_background"
     android:drawableLeft="@drawable/ic_baseline_lock_24"
     android:elevation="15dp"
-    android:padding="6dp"/>
+    android:padding="6dp"
+    android:hint="@string/password"/>
 <!--    <TextView-->
 <!--        android:layout_width="match_parent"-->
 <!--        android:layout_height="40dp"-->
