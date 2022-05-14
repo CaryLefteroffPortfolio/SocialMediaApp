@@ -6,7 +6,12 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.ArrayList;
+
+public class LogActivity extends AppCompatActivity {
+
+    ArrayList<User> users = new ArrayList<>();
+    User currentUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,4 +27,5 @@ public class MainActivity extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
     }
+
 }

@@ -3,24 +3,20 @@ package com.example.cs175proj;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.Toast;
 
-import com.example.cs175proj.placeholder.PlaceholderContent.PlaceholderItem;
 import com.example.cs175proj.databinding.FragmentItemBinding;
+import com.example.cs175proj.placeholder.PlaceholderContent;
 
 import java.util.List;
 
-/**
- * {@link RecyclerView.Adapter} that can display a {@link PlaceholderItem}.
- * TODO: Replace the implementation with code for your data type.
- */
+
 public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecyclerViewAdapter.ViewHolder> {
 
-    private final List<PlaceholderItem> mValues;
+    private final List<PlaceholderContent.PlaceholderItem> mValues;
 
-    public MyItemRecyclerViewAdapter(List<PlaceholderItem> items) {
+    public MyItemRecyclerViewAdapter(List<PlaceholderContent.PlaceholderItem> items) {
         mValues = items;
     }
 
@@ -33,9 +29,8 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-        holder.mItem = mValues.get(position);
-        holder.mIdView.setText(mValues.get(position).id);
-        holder.mContentView.setText(mValues.get(position).content);
+        String current = mValues.get(position).toString();
+        holder.binding.content.setText(current);
     }
 
     @Override
@@ -44,19 +39,13 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public final TextView mIdView;
-        public final TextView mContentView;
-        public PlaceholderItem mItem;
+        protected final FragmentItemBinding binding;
 
         public ViewHolder(FragmentItemBinding binding) {
             super(binding.getRoot());
-            mIdView = binding.itemNumber;
-            mContentView = binding.content;
+            this.binding = binding;
+            this.binding.getRoot().setOnClickListener(view -> Toast.makeText(view.getContext(), "A row clicked", Toast.LENGTH_SHORT).show());
         }
 
-        @Override
-        public String toString() {
-            return super.toString() + " '" + mContentView.getText() + "'";
-        }
     }
 }

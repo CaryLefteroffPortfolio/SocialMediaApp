@@ -8,19 +8,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link BlankFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class BlankFragment extends Fragment {
+//NOTE: USED EXERCISE 3 INSTRUCTION TO SET UP LIST
+public class ListOfPostsFragment extends Fragment {
 
-    public BlankFragment() {
+    public ListOfPostsFragment() {
         // Required empty public constructor
     }
 
-    public static BlankFragment newInstance(String param1, String param2) {
-        BlankFragment fragment = new BlankFragment();
+    public static ListOfPostsFragment newInstance(String param1, String param2) {
+        ListOfPostsFragment fragment = new ListOfPostsFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;

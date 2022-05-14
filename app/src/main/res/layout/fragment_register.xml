@@ -21,6 +21,7 @@ android:orientation="vertical">
     android:textStyle="bold" />
 
 <EditText
+    android:id="@+id/register_user"
     android:layout_width="match_parent"
     android:layout_height="45dp"
     android:layout_margin="4dp"
@@ -31,6 +32,7 @@ android:orientation="vertical">
     android:hint="@string/user"/>
 
 <EditText
+    android:id="@+id/register_email"
     android:layout_width="match_parent"
     android:layout_height="45dp"
     android:layout_marginLeft="4dp"
@@ -43,6 +45,7 @@ android:orientation="vertical">
     android:hint="@string/email"/>
 
 <EditText
+    android:id="@+id/register_password"
     android:layout_width="match_parent"
     android:layout_height="45dp"
     android:layout_marginLeft="4dp"
@@ -53,17 +56,9 @@ android:orientation="vertical">
     android:elevation="15dp"
     android:padding="6dp"
     android:hint="@string/password"/>
-<!--    <TextView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="40dp"-->
-<!--        android:layout_marginTop="120dp"-->
-<!--        android:gravity="center"-->
-<!--        android:text= "Create"-->
-<!--        android:textSize="20dp"-->
-<!--        android:textColor="#000"-->
-<!--        android:textStyle="bold" />-->
 
 <ImageButton
+    android:id="@+id/registerButton"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:gravity="center"
