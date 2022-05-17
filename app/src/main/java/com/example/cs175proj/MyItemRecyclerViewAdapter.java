@@ -3,20 +3,20 @@ package com.example.cs175proj;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.cs175proj.databinding.FragmentItemBinding;
-import com.example.cs175proj.placeholder.PlaceholderContent;
 
 import java.util.List;
 
 
 public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecyclerViewAdapter.ViewHolder> {
 
-    private final List<PlaceholderContent.PlaceholderItem> mValues;
+    private final List<Post> mValues;
 
-    public MyItemRecyclerViewAdapter(List<PlaceholderContent.PlaceholderItem> items) {
+    public MyItemRecyclerViewAdapter(List<Post> items) {
         mValues = items;
     }
 
@@ -44,7 +44,8 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
         public ViewHolder(FragmentItemBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
-            this.binding.getRoot().setOnClickListener(view -> Toast.makeText(view.getContext(), "A row clicked", Toast.LENGTH_SHORT).show());
+           /* this.binding.getRoot().setOnClickListener(); //TODO FINISH
+            });*/
         }
 
     }

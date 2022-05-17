@@ -19,7 +19,6 @@ public class RegisterFragment extends Fragment {
 
     ImageButton registerButton;
     EditText regUser, regEmail, regPass;
-    LogActivity a;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -36,13 +35,22 @@ public class RegisterFragment extends Fragment {
 
             @Override
             public void onClick(View view) {
-                User a = new User(regEmail.getText().toString(),
+                User b = new User(regEmail.getText().toString(),
                         regUser.getText().toString(),
                         regPass.getText().toString());
-                System.out.println("*****USER CREATED****");
-                System.out.println(a.toString());
-//                ItemFragment next = new ItemFragment();
-                ListOfPostsFragment next = new ListOfPostsFragment();
+                System.out.println("**********************");
+                System.out.println("User Created: " + b.toString());
+
+                //add new user
+                ((LogActivity)getActivity()).addUser(b);
+                System.out.println("User added!");
+
+                //update session for logged in user
+                ((LogActivity)getActivity()).updateSession(b);
+                System.out.println("Session Saved!");
+
+                //move to next fragment
+                ItemFragment next = new ItemFragment();
                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView, next, "find").addToBackStack(null).commit();
             }
         });
