@@ -5,6 +5,7 @@ package com.example.cs175proj;
 
         import androidx.fragment.app.Fragment;
         import androidx.navigation.NavController;
+        import androidx.navigation.Navigation;
         import androidx.navigation.fragment.NavHostFragment;
         import androidx.recyclerview.widget.GridLayoutManager;
         import androidx.recyclerview.widget.LinearLayoutManager;
@@ -14,22 +15,27 @@ package com.example.cs175proj;
         import android.view.View;
         import android.view.ViewGroup;
 
+        import com.example.cs175proj.databinding.FragmentItemListBinding;
+        import com.example.cs175proj.databinding.FragmentMainBinding;
+
         import java.util.ArrayList;
 
-public class ItemFragment extends Fragment {
+public class ItemFragment extends Fragment implements MyItemRecyclerViewAdapter.ClickListener{
 
     ArrayList<Post> data = new ArrayList<>();
     MyItemRecyclerViewAdapter adapter;
+    FragmentItemListBinding b;
+
     RecyclerView recyclerView;
 
     public ItemFragment() {
     }
 
-    public void onClick(int position) {
+    public void onItemClick(int position) {
         Bundle bundle = new Bundle();
         bundle.putInt("PostIndex", position);
         NavController nav = NavHostFragment.findNavController(this);
-        nav.navigate(R.id.action_itemFragment2_to_postContentViewFragment, bundle);
+        nav.navigate(R.id.action_itemFragment_to_postContentViewFragment, bundle);
     }
 
     @Override
@@ -45,10 +51,17 @@ public class ItemFragment extends Fragment {
         for(int i = 1; i < 25; i++) {
             data.add(new Post(new User("a", "a", "a"), "CONTENT OF POST!", "POST TITLE NUMBER " + i));
         }
-        adapter = new MyItemRecyclerViewAdapter(data);
+
+
+        b = FragmentItemListBinding.inflate(getLayoutInflater());
+        adapter = new MyItemRecyclerViewAdapter(data, this);
         recyclerView = (RecyclerView) view;
         recyclerView.setAdapter(adapter);
 
-        return view;
+        b.list.setAdapter(adapter);
+        b.list.setLayoutManager(new LinearLayoutManager(this.getContext()));
+//        return view;
+        return b.getRoot();
     }
+
 }

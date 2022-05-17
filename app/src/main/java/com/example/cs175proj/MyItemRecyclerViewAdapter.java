@@ -14,16 +14,18 @@ import java.util.List;
 
 public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecyclerViewAdapter.ViewHolder> {
 
-    private final List<Post> mValues;
+    List<Post> mValues;
+    ClickListener clickListener;
 
-    public MyItemRecyclerViewAdapter(List<Post> items) {
+    public MyItemRecyclerViewAdapter(List<Post> items, ClickListener clickListener) {
         mValues = items;
+        this.clickListener = clickListener;
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        return new ViewHolder(FragmentItemBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false));
+        return new ViewHolder(FragmentItemBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false), clickListener);
 
     }
 
@@ -39,14 +41,18 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        protected final FragmentItemBinding binding;
+        FragmentItemBinding binding;
 
-        public ViewHolder(FragmentItemBinding binding) {
+        public ViewHolder(FragmentItemBinding binding, ClickListener clickListener) {
             super(binding.getRoot());
             this.binding = binding;
-           /* this.binding.getRoot().setOnClickListener(); //TODO FINISH
-            });*/
+            this.binding.getRoot().setOnClickListener(view ->
+                    clickListener.onItemClick(getBindingAdapterPosition()));
         }
 
+    }
+
+    public interface ClickListener {
+        void onItemClick(int position);
     }
 }
