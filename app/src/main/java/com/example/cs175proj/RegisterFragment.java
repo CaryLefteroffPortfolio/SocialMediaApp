@@ -3,6 +3,8 @@ package com.example.cs175proj;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -50,11 +52,17 @@ public class RegisterFragment extends Fragment {
                 System.out.println("Session Saved!");
 
                 //move to next fragment
-                ItemFragment next = new ItemFragment();
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView, next, "find").addToBackStack(null).commit();
+//                ItemFragment next = new ItemFragment();
+//                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView, next, "find").addToBackStack(null).commit();
+                onClick1();
             }
         });
 
         return view;
+    }
+
+    public void onClick1(){
+        NavController nav = NavHostFragment.findNavController(this);
+        nav.navigate(R.id.action_registerFragment_to_itemFragment);
     }
 }

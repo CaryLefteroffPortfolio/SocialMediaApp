@@ -77,11 +77,12 @@ public class ItemFragment extends Fragment implements MyItemRecyclerViewAdapter.
             e.apply();
             MainFragment next = new MainFragment();
 
-            Intent intent = new Intent(this.getActivity(), LogActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(intent);
-            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView, next, "find").commit();
-
+//            Intent intent = new Intent(this.getActivity(), LogActivity.class);
+//            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//            startActivity(intent);
+            //getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView, next, "find").commit();
+            NavController nav = NavHostFragment.findNavController(this);
+            nav.navigate(R.id.action_itemFragment_to_mainFragment);
         }else if(item.getItemId() == R.id.uninstall){
             Intent delete = new Intent(Intent.ACTION_DELETE, Uri.parse("package:" + getActivity().getPackageName()));
             startActivity(delete);
@@ -94,10 +95,7 @@ public class ItemFragment extends Fragment implements MyItemRecyclerViewAdapter.
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_item_list, container, false);
 
-        for(int i = 1; i < 25; i++) {
-            data.add(new Post(new User("a", "a", "a"), "CONTENT OF POST!", "POST TITLE NUMBER " + i));
-        }
-
+        data = ((LogActivity) getActivity()).getAllPosts();
 
         b = FragmentItemListBinding.inflate(getLayoutInflater());
         adapter = new MyItemRecyclerViewAdapter(data, this);
@@ -109,5 +107,7 @@ public class ItemFragment extends Fragment implements MyItemRecyclerViewAdapter.
 //        return view;
         return b.getRoot();
     }
+
+
 
 }

@@ -1,8 +1,8 @@
 package com.example.cs175proj;
 
-import android.os.Parcelable;
+import androidx.appcompat.app.AppCompatActivity;
 
-public class Post {
+public class Post extends AppCompatActivity {
 
     private String content;
     private String header;
@@ -62,4 +62,5 @@ public class Post {
     public String toString() {
         return this.header;
     }
+
 }

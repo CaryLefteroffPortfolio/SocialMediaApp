@@ -2,9 +2,12 @@ package com.example.cs175proj;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -60,4 +63,5 @@ public class PostContentViewFragment extends Fragment {
         numLikes.setText("Likes: " + String.valueOf(post.getUpvotes()));
         return view;
     }
+    
 }

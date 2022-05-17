@@ -5,6 +5,8 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,26 +26,31 @@ public class MainFragment extends Fragment {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.addToBackStack(null);
-                ft.replace(R.id.fragmentContainerView, new LoginFragment(), "loginFrag");
-                ft.commit();
+                onClick1();
             }
         });
+
 
         Button registerButton = (Button)view.findViewById(R.id.registerButton);
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.addToBackStack(null);
-                ft.replace(R.id.fragmentContainerView, new RegisterFragment(), "regFrag");
-                ft.commit();
+                onClick2();
             }
         });
 
         // Inflate the layout for this fragment
         return view;
+    }
+
+    public void onClick1(){
+        NavController nav = NavHostFragment.findNavController(this);
+        nav.navigate(R.id.action_mainFragment_to_loginFragment);
+    }
+
+    public void onClick2(){
+        NavController nav = NavHostFragment.findNavController(this);
+        nav.navigate(R.id.action_mainFragment_to_registerFragment);
     }
 
 }

@@ -33,10 +33,15 @@ public class LogActivity extends AppCompatActivity {
         users.add(new User("jim@jim.com", "jim", "jim"));
         users.add(new User("cat@cat.com", "cat", "cat"));
         users.add(new User("jill@jim.com", "jill", "jill"));
-
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.add(R.id.fragmentContainerView, new MainFragment());
-        fragmentTransaction.commit();
+        User jim = getUser(0);
+        User cat = getUser(1);
+        User jill = getUser(2);
+        insertPost(new Post(jim,"Went to the Beach", "The Beach was so fun"));
+        insertPost(new Post(cat,"Went to the Beach", "The Beach was so fun"));
+        insertPost(new Post(jill,"Went to the Beach", "The Beach was so fun"));
+//        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+//        fragmentTransaction.add(R.id.fragmentContainerView, new MainFragment());
+//        fragmentTransaction.commit();
     }
 
     @Override
@@ -60,7 +65,7 @@ public class LogActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
+
     }
 
     public void addUser(User u){

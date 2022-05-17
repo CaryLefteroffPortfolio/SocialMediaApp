@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/forum_nav"
-    app:startDestination="@id/itemFragment">
+    app:startDestination="@id/mainFragment">
 
     <fragment
         android:id="@+id/postContentViewFragment"
@@ -26,6 +26,9 @@
         <action
             android:id="@+id/action_itemFragment_to_createPostFragment"
             app:destination="@id/createPostFragment" />
+        <action
+            android:id="@+id/action_itemFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
     </fragment>
     <fragment
         android:id="@+id/createPostFragment"
@@ -44,5 +47,34 @@
     <action
         android:id="@+id/action_global_infoFragment"
         app:destination="@id/userInfoFragment" />
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.cs175proj.MainFragment"
+        android:label="MainFragment" >
+        <action
+            android:id="@+id/action_mainFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.cs175proj.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_itemFragment"
+            app:destination="@id/itemFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.cs175proj.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_registerFragment_to_itemFragment"
+            app:destination="@id/itemFragment" />
+    </fragment>
 
 </navigation>
