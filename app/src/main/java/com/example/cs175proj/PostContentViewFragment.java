@@ -28,16 +28,17 @@ public class PostContentViewFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+        View view = inflater.inflate(R.layout.fragment_post_content_view, container, false);
         if(getArguments() != null) {
             int index = getArguments().getInt("PostIndex");
             LogActivity la = new LogActivity();
             post = la.getPostFromIndex(index);
         }
-        Button likeButton = getView().findViewById(R.id.like_button);
-        Button dislikeButton = getView().findViewById(R.id.dislike_button);
-        TextView title = getView().findViewById(R.id.title_text);
-        TextView content = getView().findViewById(R.id.Content_Text);
-        TextView numLikes = getView().findViewById(R.id.votes);
+        Button likeButton = view.findViewById(R.id.like_button);
+        Button dislikeButton = view.findViewById(R.id.dislike_button);
+        TextView title = view.findViewById(R.id.title_text);
+        TextView content = view.findViewById(R.id.Content_Text);
+        TextView numLikes = view.findViewById(R.id.votes);
 
         likeButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,7 +58,6 @@ public class PostContentViewFragment extends Fragment {
         title.setText(post.getHeader());
         content.setText(post.getContent());
         numLikes.setText("Likes: " + String.valueOf(post.getUpvotes()));
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_post_content_view, container, false);
+        return view;
     }
 }
