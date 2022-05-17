@@ -8,4 +8,13 @@
     <string name="user">username</string>
     <string name="password">password</string>
     <string name="email">email</string>
+    <string name="logout">logout</string>
+    <string name="uninstall">uninstall</string>
+    <string name="title">TITLE</string>
+    <string name="dislike">Dislike</string>
+    <string name="like">Like</string>
+    <string name="content">CONTENT</string>
+    <string name="of_upvotes_likes"># of Upvotes/Likes</string>
+    <string name="post_title">Post Title</string>
+    <string name="post_content">Post Content</string>
 </resources>
