@@ -37,10 +37,9 @@
             android:id="@+id/submit_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="568dp"
-            android:text="Submit"
+            android:layout_marginTop="444dp"
+            android:text="@string/submit"
             app:layout_constraintEnd_toEndOf="@+id/create_content"
-            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="@+id/create_content"
             app:layout_constraintTop_toBottomOf="@+id/create_content" />
 

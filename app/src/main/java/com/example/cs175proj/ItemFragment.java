@@ -5,6 +5,7 @@ package com.example.cs175proj;
 
         import androidx.fragment.app.Fragment;
         import androidx.navigation.NavController;
+        import androidx.navigation.NavHost;
         import androidx.navigation.Navigation;
         import androidx.navigation.fragment.NavHostFragment;
         import androidx.recyclerview.widget.GridLayoutManager;
@@ -19,6 +20,7 @@ package com.example.cs175proj;
         import com.example.cs175proj.databinding.FragmentMainBinding;
 
         import java.util.ArrayList;
+        import java.util.Objects;
 
 public class ItemFragment extends Fragment implements MyItemRecyclerViewAdapter.ClickListener{
 
@@ -36,6 +38,11 @@ public class ItemFragment extends Fragment implements MyItemRecyclerViewAdapter.
         bundle.putInt("PostIndex", position);
         NavController nav = NavHostFragment.findNavController(this);
         nav.navigate(R.id.action_itemFragment_to_postContentViewFragment, bundle);
+    }
+
+    public void onCreateButtonClick() {
+        NavController nav = NavHostFragment.findNavController(this);
+        nav.navigate(R.id.action_itemFragment_to_createPostFragment);
     }
 
     @Override

@@ -47,7 +47,7 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
             super(binding.getRoot());
             this.binding = binding;
             this.binding.getRoot().setOnClickListener(view ->
-                    clickListener.onItemClick(getBindingAdapterPosition()));
+                  clickListener.onItemClick(getBindingAdapterPosition()));
         }
 
     }

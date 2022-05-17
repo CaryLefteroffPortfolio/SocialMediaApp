@@ -23,5 +23,17 @@
         <action
             android:id="@+id/action_itemFragment_to_postContentViewFragment"
             app:destination="@id/postContentViewFragment" />
+        <action
+            android:id="@+id/action_itemFragment_to_createPostFragment"
+            app:destination="@id/createPostFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createPostFragment"
+        android:name="com.example.cs175proj.CreatePostFragment"
+        android:label="fragment_create_post"
+        tools:layout="@layout/fragment_create_post" >
+        <action
+            android:id="@+id/action_createPostFragment_to_itemFragment"
+            app:destination="@id/itemFragment" />
     </fragment>
 </navigation>

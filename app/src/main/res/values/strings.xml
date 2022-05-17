@@ -17,4 +17,5 @@
     <string name="of_upvotes_likes"># of Upvotes/Likes</string>
     <string name="post_title">Post Title</string>
     <string name="post_content">Post Content</string>
+    <string name="submit">Submit</string>
 </resources>

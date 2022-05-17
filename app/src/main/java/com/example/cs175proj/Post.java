@@ -17,8 +17,8 @@ public class Post {
     }
 
     public Post() {
-        content = "";
-        header = "";
+        content = "NULL CONTENT";
+        header = "NULL HEADER";
         upvotes = 0;
         originalPoster = new User("a", "a", "a");
         index = 0;
