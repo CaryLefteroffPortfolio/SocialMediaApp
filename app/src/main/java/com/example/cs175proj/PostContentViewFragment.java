@@ -1,13 +1,20 @@
 package com.example.cs175proj;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -24,6 +31,7 @@ public class PostContentViewFragment extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        setHasOptionsMenu(true);
         super.onCreate(savedInstanceState);
     }
 
@@ -63,5 +71,20 @@ public class PostContentViewFragment extends Fragment {
         numLikes.setText("Likes: " + String.valueOf(post.getUpvotes()));
         return view;
     }
-    
+
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        inflater.inflate(R.menu.postmenu, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if(item.getItemId() == R.id.backToBoard){
+            NavController nav = NavHostFragment.findNavController(this);
+            nav.navigate(R.id.action_postContentViewFragment_to_itemFragment);
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
 }
