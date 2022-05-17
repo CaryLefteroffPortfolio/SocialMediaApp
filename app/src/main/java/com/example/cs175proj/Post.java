@@ -1,5 +1,7 @@
 package com.example.cs175proj;
 
+import android.os.Parcelable;
+
 public class Post {
 
     private String content;

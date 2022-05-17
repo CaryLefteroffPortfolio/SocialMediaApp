@@ -1,10 +1,16 @@
 package com.example.cs175proj;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 
 import java.util.ArrayList;
@@ -35,7 +41,6 @@ public class LogActivity extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
-
         Session session = new Session(LogActivity.this);
         int getSession = session.getSession();
         if(getSession != -1){
@@ -78,4 +83,12 @@ public class LogActivity extends AppCompatActivity {
         posts.add(p);
     }
 
+    public User getUser(int id){
+        for(User a:users){
+            if(a.getId() == id){
+                return a;
+            }
+        }
+        return null;
+    }
 }

@@ -24,4 +24,13 @@
             android:id="@+id/action_itemFragment_to_postContentViewFragment"
             app:destination="@id/postContentViewFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/userInfoFragment"
+        android:name="com.example.cs175proj.UserInfoFragment"
+        android:label="fragment_user_info"
+        tools:layout="@layout/fragment_user_info" />
+    <action
+        android:id="@+id/action_global_infoFragment"
+        app:destination="@id/userInfoFragment" />
+
 </navigation>

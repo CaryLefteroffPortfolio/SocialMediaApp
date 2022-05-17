@@ -40,6 +40,8 @@ public class LoginFragment extends Fragment {
                 } else {
                     ((LogActivity) getActivity()).updateSession(b);
                     System.out.println("Session Saved!");
+                    int u = ((LogActivity) getActivity()).session.getSession();
+                    System.out.println("User ID: " + u + " is logged in");
                     ItemFragment next = new ItemFragment();
                     getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView, next, "find").addToBackStack(null).commit();
                 }
