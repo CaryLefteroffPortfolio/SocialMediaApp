@@ -20,4 +20,5 @@
     <string name="post_title">Title</string>
     <string name="post_content">Content</string>
     <string name="submit">Submit</string>
+    <string name="posted_by_xyz">Posted By: XYZ</string>
 </resources>
