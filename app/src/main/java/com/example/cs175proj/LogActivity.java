@@ -102,14 +102,34 @@ public class LogActivity extends AppCompatActivity {
     }
 
     public void floatBtnClicked(View v){
-        System.out.println("HERE");
         List<Fragment> b = getSupportFragmentManager().getFragments();
         for(Fragment frag : b){
             System.out.println(frag);
             if(frag instanceof NavHostFragment){
-                System.out.println("FOUND");
                 NavController nav = NavHostFragment.findNavController(frag);
                 nav.navigate(R.id.action_itemFragment_to_createPostFragment);
+            }
+        }
+    }
+
+    public void backBtnClickedPostContent(View v){
+        List<Fragment> b = getSupportFragmentManager().getFragments();
+        for(Fragment frag : b){
+            System.out.println(frag);
+            if(frag instanceof NavHostFragment){
+                NavController nav = NavHostFragment.findNavController(frag);
+                nav.navigate(R.id.action_postContentViewFragment_to_itemFragment);
+            }
+        }
+    }
+
+    public void backBtnClickedCreatePost(View v){
+        List<Fragment> b = getSupportFragmentManager().getFragments();
+        for(Fragment frag : b){
+            System.out.println(frag);
+            if(frag instanceof NavHostFragment){
+                NavController nav = NavHostFragment.findNavController(frag);
+                nav.navigate(R.id.action_createPostFragment_to_itemFragment);
             }
         }
     }

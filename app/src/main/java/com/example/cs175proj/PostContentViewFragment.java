@@ -31,7 +31,7 @@ public class PostContentViewFragment extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        setHasOptionsMenu(true);
+//        setHasOptionsMenu(true);
         super.onCreate(savedInstanceState);
     }
 
@@ -85,19 +85,19 @@ public class PostContentViewFragment extends Fragment {
         return view;
     }
 
-    @Override
-    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
-        inflater.inflate(R.menu.postmenu, menu);
-        super.onCreateOptionsMenu(menu, inflater);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if(item.getItemId() == R.id.backToBoard){
-            NavController nav = NavHostFragment.findNavController(this);
-            nav.navigate(R.id.action_postContentViewFragment_to_itemFragment);
-        }
-        return super.onOptionsItemSelected(item);
-    }
+//    @Override
+//    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+//        inflater.inflate(R.menu.postmenu, menu);
+//        super.onCreateOptionsMenu(menu, inflater);
+//    }
+//
+//    @Override
+//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+//        if(item.getItemId() == R.id.backToBoard){
+//            NavController nav = NavHostFragment.findNavController(this);
+//            nav.navigate(R.id.action_postContentViewFragment_to_itemFragment);
+//        }
+//        return super.onOptionsItemSelected(item);
+//    }
 
 }
