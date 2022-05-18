@@ -2,6 +2,7 @@ package com.example.cs175proj;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
@@ -14,13 +15,15 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class LogActivity extends AppCompatActivity {
 
     ArrayList<User> users = new ArrayList<>();
     private static ArrayList<Post> posts = new ArrayList<>();
-    User currentUser;
 
     Session session;
 
@@ -28,6 +31,8 @@ public class LogActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
         session = new Session(LogActivity.this);
         //Create Users
         users.add(new User("jim@jim.com", "jim", "jim"));
@@ -37,11 +42,9 @@ public class LogActivity extends AppCompatActivity {
         User cat = getUser(1);
         User jill = getUser(2);
         insertPost(new Post(jim,"Went to the Beach", "The Beach was so fun"));
-        insertPost(new Post(cat,"Went to the Beach", "The Beach was so fun"));
-        insertPost(new Post(jill,"Went to the Beach", "The Beach was so fun"));
-//        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-//        fragmentTransaction.add(R.id.fragmentContainerView, new MainFragment());
-//        fragmentTransaction.commit();
+        insertPost(new Post(cat,"Went to the Hills", "The Hills were so fun"));
+        insertPost(new Post(jill,"Went to the Lake", "The Lake was so fun"));
+
     }
 
     @Override
@@ -85,7 +88,7 @@ public class LogActivity extends AppCompatActivity {
     }
 
     public static void insertPost(Post p) {
-        p.setIndex(posts.size());
+//        p.setIndex(posts.size());
         posts.add(p);
     }
 
@@ -97,4 +100,18 @@ public class LogActivity extends AppCompatActivity {
         }
         return null;
     }
+
+    public void floatBtnClicked(View v){
+        System.out.println("HERE");
+        List<Fragment> b = getSupportFragmentManager().getFragments();
+        for(Fragment frag : b){
+            System.out.println(frag);
+            if(frag instanceof NavHostFragment){
+                System.out.println("FOUND");
+                NavController nav = NavHostFragment.findNavController(frag);
+                nav.navigate(R.id.action_itemFragment_to_createPostFragment);
+            }
+        }
+    }
+
 }

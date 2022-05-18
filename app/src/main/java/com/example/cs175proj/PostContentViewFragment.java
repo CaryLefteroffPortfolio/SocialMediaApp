@@ -40,9 +40,9 @@ public class PostContentViewFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_post_content_view, container, false);
+        LogActivity la = (LogActivity)(getActivity());
         if(getArguments() != null) {
             int index = getArguments().getInt("PostIndex");
-            LogActivity la = new LogActivity();
             post = la.getPostFromIndex(index);
         }
         Button likeButton = view.findViewById(R.id.like_button);
@@ -51,18 +51,31 @@ public class PostContentViewFragment extends Fragment {
         TextView content = view.findViewById(R.id.Content_Text);
         TextView numLikes = view.findViewById(R.id.votes);
 
+        User curr = la.getUser(la.session.getSession());
+
         likeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                post.upvote();
+                if(curr.hasLiked(post)) {
+                    post.downvote();
+                    curr.removeLikedPost(post);
+                    } else {
+                    post.upvote();
+                    curr.addLikedPost(post);
+                    }
                 numLikes.setText("Likes: " + String.valueOf(post.getUpvotes()));
             }
         });
         dislikeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(curr.hasDisliked(post)) {
+                post.upvote();
+                curr.removeDislikedPost(post);
+                } else {
                 post.downvote();
-                numLikes.setText("Likes: " + String.valueOf(post.getUpvotes()));
+                curr.addDislikedPost(post);
+                }
             }
         });
 

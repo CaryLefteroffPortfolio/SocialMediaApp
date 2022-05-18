@@ -7,29 +7,24 @@ package com.example.cs175proj;
         import android.os.Bundle;
 
         import androidx.annotation.NonNull;
-        import androidx.core.app.ActivityCompat;
         import androidx.fragment.app.Fragment;
         import androidx.navigation.NavController;
-        import androidx.navigation.NavHost;
-        import androidx.navigation.Navigation;
         import androidx.navigation.fragment.NavHostFragment;
-        import androidx.recyclerview.widget.GridLayoutManager;
         import androidx.recyclerview.widget.LinearLayoutManager;
-        import androidx.recyclerview.widget.RecyclerView;
 
-        import android.provider.Settings;
         import android.view.LayoutInflater;
         import android.view.Menu;
         import android.view.MenuInflater;
         import android.view.MenuItem;
         import android.view.View;
         import android.view.ViewGroup;
+        import android.widget.Button;
+        import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 
         import com.example.cs175proj.databinding.FragmentItemListBinding;
-        import com.example.cs175proj.databinding.FragmentMainBinding;
 
         import java.util.ArrayList;
-        import java.util.Objects;
 
 public class ItemFragment extends Fragment implements MyItemRecyclerViewAdapter.ClickListener{
 
@@ -38,6 +33,7 @@ public class ItemFragment extends Fragment implements MyItemRecyclerViewAdapter.
     MyItemRecyclerViewAdapter adapter;
     FragmentItemListBinding b;
 
+    FloatingActionButton fab;
 //    RecyclerView recyclerView;
 
     public ItemFragment() {
@@ -51,11 +47,6 @@ public class ItemFragment extends Fragment implements MyItemRecyclerViewAdapter.
         nav.navigate(R.id.action_itemFragment_to_postContentViewFragment, bundle);
     }
 
-    public void onCreateButtonClick() {
-        NavController nav = NavHostFragment.findNavController(this);
-        nav.navigate(R.id.action_itemFragment_to_createPostFragment);
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         setHasOptionsMenu(true);
@@ -66,6 +57,7 @@ public class ItemFragment extends Fragment implements MyItemRecyclerViewAdapter.
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         inflater.inflate(R.menu.menu, menu);
         super.onCreateOptionsMenu(menu, inflater);
+
     }
 
     @Override
@@ -77,10 +69,6 @@ public class ItemFragment extends Fragment implements MyItemRecyclerViewAdapter.
             e.apply();
             MainFragment next = new MainFragment();
 
-//            Intent intent = new Intent(this.getActivity(), LogActivity.class);
-//            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//            startActivity(intent);
-            //getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView, next, "find").commit();
             NavController nav = NavHostFragment.findNavController(this);
             nav.navigate(R.id.action_itemFragment_to_mainFragment);
         }else if(item.getItemId() == R.id.uninstall){
@@ -99,8 +87,6 @@ public class ItemFragment extends Fragment implements MyItemRecyclerViewAdapter.
 
         b = FragmentItemListBinding.inflate(getLayoutInflater());
         adapter = new MyItemRecyclerViewAdapter(data, this);
-//        recyclerView = (RecyclerView) view;
-//        recyclerView.setAdapter(adapter);
 
         b.list.setAdapter(adapter);
         b.list.setLayoutManager(new LinearLayoutManager(this.getContext()));
@@ -108,6 +94,10 @@ public class ItemFragment extends Fragment implements MyItemRecyclerViewAdapter.
         return b.getRoot();
     }
 
-
+    public void onCreateButtonClick() {
+        System.out.println("HERE");
+        NavController nav = NavHostFragment.findNavController(this);
+        nav.navigate(R.id.action_itemFragment_to_createPostFragment);
+    }
 
 }

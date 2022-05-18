@@ -2,13 +2,15 @@ package com.example.cs175proj;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class Post extends AppCompatActivity {
+public class Post {
+
+    private static int POST_ID = 0;
 
     private String content;
     private String header;
     private int upvotes;
     private User originalPoster;
-    private int index;
+    private int id;
 
     public Post(User originalPoster, String content, String header) {
         this.originalPoster = originalPoster;
@@ -16,14 +18,11 @@ public class Post extends AppCompatActivity {
         upvotes = 0;
         this.header = header;
         originalPoster.addPost(this);
+        id = POST_ID++;
     }
 
     public Post() {
-        content = "NULL CONTENT";
-        header = "NULL HEADER";
-        upvotes = 0;
-        originalPoster = new User("a", "a", "a");
-        index = 0;
+        id = 0;
     }
 
     public String getHeader() { return header; }
@@ -47,11 +46,11 @@ public class Post extends AppCompatActivity {
     }
 
     public void setIndex(int index) {
-        this.index = index;
+        this.id = index;
     }
 
-    public int getIndex() {
-        return index;
+    public int getId() {
+        return id;
     }
 
     public void changeContent(String newContent) {

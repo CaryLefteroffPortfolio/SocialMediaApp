@@ -1,5 +1,6 @@
 package com.example.cs175proj;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -66,6 +67,8 @@ public class LoginFragment extends Fragment {
 
         return view;
     }
+
+
     public void onClick1(){
         NavController nav = NavHostFragment.findNavController(this);
         nav.navigate(R.id.action_loginFragment_to_itemFragment);
