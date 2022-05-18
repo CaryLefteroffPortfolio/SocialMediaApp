@@ -1,5 +1,6 @@
 package com.example.cs175proj;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -43,16 +44,20 @@ public class CreatePostFragment extends Fragment {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                LogActivity la = (LogActivity) getActivity();
-                int uID = la.session.getSession();
-                User u = new User("null", "null", "null");
-                User temp = la.getUser(uID);
-                if(temp != null) {
-                u = temp;
+                if(!checkLength(title.getText().toString()) || !checkLength(content.getText().toString())){
+                    warnLength();
+                }else {
+                    LogActivity la = (LogActivity) getActivity();
+                    int uID = la.session.getSession();
+                    User u = new User("null", "null", "null");
+                    User temp = la.getUser(uID);
+                    if (temp != null) {
+                        u = temp;
+                    }
+                    Post p = new Post(u, content.getText().toString(), title.getText().toString());
+                    la.insertPost(p);
+                    goBackToList();
                 }
-                Post p = new Post(u, content.getText().toString(), title.getText().toString());
-                la.insertPost(p);
-                goBackToList();
             }
         });
 
@@ -64,17 +69,18 @@ public class CreatePostFragment extends Fragment {
         nav.navigate(R.id.action_createPostFragment_to_itemFragment);
     }
 
-//    @Override
-//    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
-//        inflater.inflate(R.menu.createpostmenu, menu);
-//        super.onCreateOptionsMenu(menu, inflater);
-//    }
-//
-//    @Override
-//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-//        if(item.getItemId() == R.id.backToBoard){
-//            goBackToList();
-//        }
-//        return super.onOptionsItemSelected(item);
-//    }
+    public boolean checkLength(String s){
+        if(s.length() <1 ){
+            return false;
+        }
+        return true;
+    }
+
+    private void warnLength() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setTitle("Field Length");
+        builder.setMessage("Fields must be at least 1 character");
+        builder.create().show();
+    }
+
 }
