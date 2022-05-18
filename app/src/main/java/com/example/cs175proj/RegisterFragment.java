@@ -111,7 +111,7 @@ public class RegisterFragment extends Fragment {
     }
 
     public boolean checkEmail(String s){
-        if(Patterns.EMAIL_ADDRESS.matcher(s).matches()){
+        if(!Patterns.EMAIL_ADDRESS.matcher(s).matches()){
             return false;
         }
         return true;
