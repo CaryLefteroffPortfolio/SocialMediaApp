@@ -38,15 +38,12 @@ public class LoginFragment extends Fragment {
                 User b = checkUser();
                 if (b == null) {
                     System.out.println("NULL USER");
-                    //ALERT;
-                    ;
+                    warn();
                 } else {
                     ((LogActivity) getActivity()).updateSession(b);
                     System.out.println("Session Saved!");
                     int u = ((LogActivity) getActivity()).session.getSession();
                     System.out.println("User ID: " + u + " is logged in");
-//                    ItemFragment next = new ItemFragment();
-//                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView, next, "find").addToBackStack(null).commit();
                     onClick1();
                 }
             }
@@ -68,6 +65,12 @@ public class LoginFragment extends Fragment {
         return view;
     }
 
+    private void warn() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setTitle("Incorrect Credentials");
+        builder.setMessage("Please try again");
+        builder.create().show();
+    }
 
     public void onClick1(){
         NavController nav = NavHostFragment.findNavController(this);

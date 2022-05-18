@@ -134,4 +134,26 @@ public class LogActivity extends AppCompatActivity {
         }
     }
 
+    public void backBtnLogin(View v){
+        List<Fragment> b = getSupportFragmentManager().getFragments();
+        for(Fragment frag : b){
+            System.out.println(frag);
+            if(frag instanceof NavHostFragment){
+                NavController nav = NavHostFragment.findNavController(frag);
+                nav.navigate(R.id.action_loginFragment_to_mainFragment);
+            }
+        }
+    }
+
+    public void backBtnRegister(View v){
+        List<Fragment> b = getSupportFragmentManager().getFragments();
+        for(Fragment frag : b){
+            System.out.println(frag);
+            if(frag instanceof NavHostFragment){
+                NavController nav = NavHostFragment.findNavController(frag);
+                nav.navigate(R.id.action_registerFragment_to_mainFragment);
+            }
+        }
+    }
+
 }
