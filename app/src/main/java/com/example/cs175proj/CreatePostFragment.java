@@ -105,6 +105,11 @@ public class CreatePostFragment extends Fragment {
         return true;
     }
 
+    /**
+     * Checks if a String is over 60 characters
+     * @param s the String th be checked
+     * @return true if the String is 60 characters or less, false otherwise
+     */
     public boolean checkTitleLength(String s){
         if(s.length() <= 60){
             return true;
@@ -112,6 +117,11 @@ public class CreatePostFragment extends Fragment {
         return false;
     }
 
+    /**
+     * Checks if a String is over 300 characters
+     * @param s the String to be checked
+     * @return true if the String is 300 characters or less, false otherwise
+     */
     public boolean checkContentLength(String s){
         if(s.length() <= 300){
             return true;
@@ -129,6 +139,9 @@ public class CreatePostFragment extends Fragment {
         builder.create().show();
     }
 
+    /**
+     * Displays a warning if a user tries to create a post with a title over 60 characters
+     */
     private void warnTitleLength() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle("Title Field Length");
@@ -136,6 +149,9 @@ public class CreatePostFragment extends Fragment {
         builder.create().show();
     }
 
+    /**
+     * Displays a warning if a user tries to create a post with it's content being over 300 characters
+     */
     private void warnContentLength(){
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle("Content Field Length");
