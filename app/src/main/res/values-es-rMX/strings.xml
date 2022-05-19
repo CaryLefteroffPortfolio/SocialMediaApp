@@ -28,7 +28,7 @@
     <string name="field_min">Los campos deben tener al menos 1 carácter</string>
     <string name="bad_cred">Credenciales incorrectas</string>
     <string name="try_again">Inténtalo de nuevo</string>
-    <string name="posted_by">" Publicado por: "</string>
+    <string name="posted_by">" Publicado por: %s"</string>
     <string name="likes_w_colon">"Gustos: %d Difícil: %d"</string>
     <string name="field_3">" Los campos deben tener al menos 3 caracteres"</string>
     <string name="username_exists">El nombre de usuario existe</string>

@@ -27,7 +27,7 @@
     <string name="title_exceed_60">Title cannot exceed 60 characters</string>
     <string name="bad_cred">Incorrect Credentials</string>
     <string name="try_again">Please try again</string>
-    <string name="posted_by">Posted by: </string>
+    <string name="posted_by">Posted by: %s</string>
     <string name="likes_w_colon">Likes: %d Dislikes: %d</string>
     <string name="field_3">Fields must be at least 3 characters</string>
     <string name="username_exists">Username Exists</string>

@@ -24,7 +24,7 @@ public class Session {
 
     /**
      * Saves user ID in session
-     * @param user
+     * @param user the user the id is taken from
      */
     public void saveSession(User user){
         //get user id
