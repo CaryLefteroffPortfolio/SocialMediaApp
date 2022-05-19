@@ -75,7 +75,7 @@ public class PostContentViewFragment extends Fragment {
             likeButton.setEnabled(false);
         }
 
-            postedBy.setText(getString(R.string.posted_by) + post.getOriginalPoster().getUserName());
+            postedBy.setText(getString(R.string.posted_by) + " " + post.getOriginalPoster().getUserName());
 
             likeButton.setOnClickListener(new View.OnClickListener() {
                 @Override
