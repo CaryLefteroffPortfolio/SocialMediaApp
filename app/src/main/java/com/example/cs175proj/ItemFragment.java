@@ -34,7 +34,6 @@ public class ItemFragment extends Fragment implements MyItemRecyclerViewAdapter.
     FragmentItemListBinding b;
 
     FloatingActionButton fab;
-//    RecyclerView recyclerView;
 
     public ItemFragment() {
     }
@@ -57,7 +56,6 @@ public class ItemFragment extends Fragment implements MyItemRecyclerViewAdapter.
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         inflater.inflate(R.menu.menu, menu);
         super.onCreateOptionsMenu(menu, inflater);
-
     }
 
     @Override
@@ -90,12 +88,10 @@ public class ItemFragment extends Fragment implements MyItemRecyclerViewAdapter.
 
         b.list.setAdapter(adapter);
         b.list.setLayoutManager(new LinearLayoutManager(this.getContext()));
-//        return view;
         return b.getRoot();
     }
 
     public void onCreateButtonClick() {
-        System.out.println("HERE");
         NavController nav = NavHostFragment.findNavController(this);
         nav.navigate(R.id.action_itemFragment_to_createPostFragment);
     }

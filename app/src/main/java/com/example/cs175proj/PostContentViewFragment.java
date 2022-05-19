@@ -29,11 +29,6 @@ public class PostContentViewFragment extends Fragment {
     public PostContentViewFragment() {
     }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-//        setHasOptionsMenu(true);
-        super.onCreate(savedInstanceState);
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -84,20 +79,5 @@ public class PostContentViewFragment extends Fragment {
         numLikes.setText("Likes: " + String.valueOf(post.getUpvotes()));
         return view;
     }
-
-//    @Override
-//    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
-//        inflater.inflate(R.menu.postmenu, menu);
-//        super.onCreateOptionsMenu(menu, inflater);
-//    }
-//
-//    @Override
-//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-//        if(item.getItemId() == R.id.backToBoard){
-//            NavController nav = NavHostFragment.findNavController(this);
-//            nav.navigate(R.id.action_postContentViewFragment_to_itemFragment);
-//        }
-//        return super.onOptionsItemSelected(item);
-//    }
 
 }

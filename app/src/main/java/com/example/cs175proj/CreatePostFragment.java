@@ -1,6 +1,10 @@
 package com.example.cs175proj;
 
 import android.app.AlertDialog;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -23,13 +27,6 @@ import java.util.ArrayList;
 public class CreatePostFragment extends Fragment {
 
     public CreatePostFragment() {
-        // Required empty public constructor
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-//        setHasOptionsMenu(true);
-        super.onCreate(savedInstanceState);
     }
 
     @Override

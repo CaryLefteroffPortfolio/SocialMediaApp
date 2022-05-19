@@ -58,5 +58,6 @@
         android:contentDescription="@string/submit"
         android:layout_margin="16dp"
         android:onClick="backBtnClickedCreatePost"
+        android:backgroundTint="#FF6200EE"
         android:clickable="true"/>
 </FrameLayout>

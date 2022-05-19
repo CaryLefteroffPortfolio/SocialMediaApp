@@ -43,14 +43,6 @@
             app:destination="@id/itemFragment" />
     </fragment>
     <fragment
-        android:id="@+id/userInfoFragment"
-        android:name="com.example.cs175proj.UserInfoFragment"
-        android:label="fragment_user_info"
-        tools:layout="@layout/fragment_user_info" />
-    <action
-        android:id="@+id/action_global_infoFragment"
-        app:destination="@id/userInfoFragment" />
-    <fragment
         android:id="@+id/mainFragment"
         android:name="com.example.cs175proj.MainFragment"
         android:label="MainFragment" >

@@ -10,48 +10,53 @@ android:background="#ffff"
 android:padding="16dp"
 android:orientation="vertical">
 
-<TextView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="32dp"
-    android:gravity="center"
-    android:text= "Login"
-    android:textSize="40dp"
-    android:textColor="#000"
-    android:textStyle="bold" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="32dp"
+        android:gravity="center"
+        android:text="Login"
+        android:textColor="#000"
+        android:textSize="40dp"
+        android:textStyle="bold" />
 
-<EditText
-    android:id="@+id/login_user"
-    android:layout_width="match_parent"
-    android:layout_height="45dp"
-    android:layout_margin="4dp"
-    android:background="@drawable/registration_background"
-    android:drawableLeft="@drawable/ic_baseline_person_24"
-    android:elevation="15dp"
-    android:padding="6dp"
-    android:hint="@string/user"/>
+    <EditText
+        android:id="@+id/login_user"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_margin="4dp"
+        android:background="@drawable/registration_background"
+        android:drawableLeft="@drawable/ic_baseline_person_24"
+        android:elevation="15dp"
+        android:hint="@string/user"
+        android:padding="6dp"
+        tools:ignore="TouchTargetSizeCheck" />
 
 
-<EditText
-    android:id="@+id/login_email"
-    android:layout_width="match_parent"
-    android:layout_height="45dp"
-    android:layout_marginLeft="4dp"
-    android:layout_marginRight="4dp"
-    android:layout_marginTop="20dp"
-    android:background="@drawable/registration_background"
-    android:drawableLeft="@drawable/ic_baseline_lock_24"
-    android:elevation="15dp"
-    android:padding="6dp"
-    android:hint="@string/password"/>
+    <EditText
+        android:id="@+id/login_email"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="4dp"
+        android:background="@drawable/registration_background"
+        android:drawableLeft="@drawable/ic_baseline_lock_24"
+        android:elevation="15dp"
+        android:hint="@string/password"
+        android:padding="6dp"
+        tools:ignore="TouchTargetSizeCheck" />
 
-<ImageButton
-    android:id="@+id/loginButton"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="140dp"
-    android:gravity="center"
-    android:background="@drawable/ic_baseline_arrow_forward_24" />
+
+    <ImageButton
+        android:id="@+id/loginButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="140dp"
+        android:background="@drawable/ic_baseline_arrow_forward_24"
+        android:contentDescription="@string/loginButton"
+        android:gravity="center"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabBackLogin"
@@ -59,6 +64,7 @@ android:orientation="vertical">
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
         android:layout_margin="16dp"
+        android:backgroundTint="#FF6200EE"
         android:clickable="true"
         android:contentDescription="@string/submit"
         android:onClick="backBtnLogin"
