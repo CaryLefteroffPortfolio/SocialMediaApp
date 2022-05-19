@@ -56,8 +56,8 @@ public class PostContentViewFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_post_content_view, container, false);
-        LogActivity la = (LogActivity)(getActivity());
-        if(getArguments() != null) {
+        LogActivity la = (LogActivity) (getActivity());
+        if (getArguments() != null) {
             int index = getArguments().getInt("PostIndex");
             post = la.getPostFromIndex(index);
         }
@@ -69,47 +69,52 @@ public class PostContentViewFragment extends Fragment {
         TextView postedBy = view.findViewById(R.id.posted_by);
 
         User curr = la.getUser(la.session.getSession());
+        if (curr.hasLiked(post)) {
+            dislikeButton.setEnabled(false);
+        }
+        if (curr.hasDisliked(post)) {
+            likeButton.setEnabled(false);
+        }
 
-        postedBy.setText("Posted by: " + post.getOriginalPoster().getUserName());
+            postedBy.setText("Posted by: " + post.getOriginalPoster().getUserName());
 
-        likeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(curr.hasLiked(post)) {
-                    post.unupvote();
-                    curr.removeLikedPost(post);
-                    dislikeButton.setEnabled(true);
+            likeButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (curr.hasLiked(post)) {
+                        post.unupvote();
+                        curr.removeLikedPost(post);
+                        dislikeButton.setEnabled(true);
                     } else {
-                    post.upvote();
-                    curr.addLikedPost(post);
-                    dislikeButton.setEnabled(false);
+                        post.upvote();
+                        curr.addLikedPost(post);
+                        dislikeButton.setEnabled(false);
+                    }
+                    numLikes.setText("Likes: " + post.getUpvotes() +
+                            " Dislikes: " + post.getDownvotes());
                 }
-                numLikes.setText("Likes: " + post.getUpvotes() +
-                        " Dislikes: " + post.getDownvotes() );
-            }
-        });
-        dislikeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(curr.hasDisliked(post)) {
-                    post.undownvote();
-                    curr.removeDislikedPost(post);
-                    likeButton.setEnabled(true);
-                } else {
-                    post.downvote();
-                    curr.addDislikedPost(post);
-                    likeButton.setEnabled(false);
+            });
+            dislikeButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (curr.hasDisliked(post)) {
+                        post.undownvote();
+                        curr.removeDislikedPost(post);
+                        likeButton.setEnabled(true);
+                    } else {
+                        post.downvote();
+                        curr.addDislikedPost(post);
+                        likeButton.setEnabled(false);
+                    }
+                    numLikes.setText("Likes: " + post.getUpvotes() +
+                            " Dislikes: " + post.getDownvotes());
                 }
-                numLikes.setText("Likes: " + post.getUpvotes() +
-                        " Dislikes: " + post.getDownvotes() );
-            }
-        });
+            });
 
-        title.setText(post.getHeader());
-        content.setText(post.getContent());
-        numLikes.setText("Likes: " + post.getUpvotes() +
-                " Dislikes: " + post.getDownvotes() );
-        return view;
-    }
-
+            title.setText(post.getHeader());
+            content.setText(post.getContent());
+            numLikes.setText("Likes: " + post.getUpvotes() +
+                    " Dislikes: " + post.getDownvotes());
+            return view;
+        }
 }
