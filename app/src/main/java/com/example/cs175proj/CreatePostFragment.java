@@ -51,7 +51,6 @@ public class CreatePostFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_create_post, container, false);
-        // Inflate the layout for this fragment
         EditText title = view.findViewById(R.id.create_title);
         EditText content = view.findViewById(R.id.create_content);
         Button submit = view.findViewById(R.id.submit_button);

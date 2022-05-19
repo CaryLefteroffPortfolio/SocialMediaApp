@@ -9,7 +9,6 @@ public class User {
 
     private static int USER_ID = 0;
 
-    private int netUpvotes;
     private int id;
     private String email;
     private String userName;
@@ -31,7 +30,6 @@ public class User {
         posts = new ArrayList<>();
         liked = new ArrayList<>();
         disliked = new ArrayList<>();
-        netUpvotes = 0;
         this.id = USER_ID++;
     }
 
@@ -103,35 +101,6 @@ public class User {
         posts.add(post);
     }
 
-    /**
-     * Increments the user's net upvotes
-     */
-    public void upvote() {
-        netUpvotes++;
-    }
-
-    /**
-     * Deincrements the user's net upvotes
-     */
-    public void downvote() {
-        netUpvotes--;
-    }
-
-    /**
-     * Gets the user's email
-     * @return the user's email, a String
-     */
-    public String getEmail() {
-        return email;
-    }
-
-    /**
-     * Sets the user's email to a new email
-     * @param email the new email
-     */
-    public void setEmail(String email) {
-        this.email = email;
-    }
 
     /**
      * Gets the user's username
@@ -141,13 +110,6 @@ public class User {
         return userName;
     }
 
-    /**
-     * Sets the user's username to a new username
-     * @param userName the new username
-     */
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
 
     /**
      * Gets the user's password
@@ -157,13 +119,6 @@ public class User {
         return password;
     }
 
-    /**
-     * Sets the user's password to a new password
-     * @param password the new password
-     */
-    public void setPassword(String password) {
-        this.password = password;
-    }
 
     /**
      * Gets the user's id

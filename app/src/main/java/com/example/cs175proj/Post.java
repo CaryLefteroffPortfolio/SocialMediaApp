@@ -72,7 +72,6 @@ public class Post {
      */
     public void upvote() {
         upvotes++;
-        originalPoster.upvote();
     }
 
     /**
@@ -80,7 +79,6 @@ public class Post {
      */
     public void downvote() {
         downvotes++;
-        originalPoster.downvote();
     }
 
     /**
@@ -88,7 +86,6 @@ public class Post {
      */
     public void unupvote() {
         upvotes--;
-        originalPoster.downvote();
     }
 
     /**
@@ -96,7 +93,6 @@ public class Post {
      */
     public void undownvote() {
         downvotes--;
-        originalPoster.upvote();
     }
 
     /**
@@ -113,14 +109,6 @@ public class Post {
      */
     public int getId() {
         return id;
-    }
-
-    /**
-     * Sets the content of the post to a new String of content
-     * @param newContent the new String of content
-     */
-    public void changeContent(String newContent) {
-        content = newContent;
     }
 
     /**

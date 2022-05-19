@@ -36,8 +36,6 @@ public class ItemFragment extends Fragment implements MyItemRecyclerViewAdapter.
     MyItemRecyclerViewAdapter adapter;
     FragmentItemListBinding b;
 
-    FloatingActionButton fab;
-
     /**
      * Empty constructor
      */
@@ -90,8 +88,6 @@ public class ItemFragment extends Fragment implements MyItemRecyclerViewAdapter.
             SharedPreferences.Editor e = sp.edit();
             e.clear();
             e.apply();
-            MainFragment next = new MainFragment();
-
             NavController nav = NavHostFragment.findNavController(this);
             nav.navigate(R.id.action_itemFragment_to_mainFragment);
         }else if(item.getItemId() == R.id.uninstall){
@@ -111,7 +107,7 @@ public class ItemFragment extends Fragment implements MyItemRecyclerViewAdapter.
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_item_list, container, false);
+        inflater.inflate(R.layout.fragment_item_list, container, false);
 
         data = ((LogActivity) getActivity()).getAllPosts();
 
