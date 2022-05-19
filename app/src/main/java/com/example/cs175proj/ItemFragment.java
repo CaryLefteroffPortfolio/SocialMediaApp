@@ -18,8 +18,6 @@ package com.example.cs175proj;
         import android.view.MenuItem;
         import android.view.View;
         import android.view.ViewGroup;
-        import android.widget.Button;
-        import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 
         import com.example.cs175proj.databinding.FragmentItemListBinding;
@@ -113,9 +111,5 @@ public class ItemFragment extends Fragment implements MyItemRecyclerViewAdapter.
         b.list.setAdapter(adapter);
         b.list.setLayoutManager(new LinearLayoutManager(this.getContext()));
         return b.getRoot();
-    }
-    public void onCreateButtonClick() {
-        NavController nav = NavHostFragment.findNavController(this);
-        nav.navigate(R.id.action_itemFragment_to_createPostFragment);
     }
 }

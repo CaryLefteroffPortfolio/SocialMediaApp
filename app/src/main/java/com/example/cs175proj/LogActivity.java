@@ -1,21 +1,13 @@
 package com.example.cs175proj;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentPagerAdapter;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
-import androidx.navigation.Navigation;
 
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -74,13 +66,12 @@ public class LogActivity extends AppCompatActivity {
      * @param u Current User
      */
     public void updateSession(User u){
-        System.out.println("HERE: " + u.toString());
         session.saveSession(u);
     }
 
     /**
      * Add User to List or current Users
-     * @param u
+     * @param u user to be added
      */
     public void addUser(User u){
         users.add(u);
@@ -113,7 +104,7 @@ public class LogActivity extends AppCompatActivity {
 
     /**
      * Add post to list of posts
-     * @param p
+     * @param p post to be added
      */
     public static void insertPost(Post p) {
         posts.add(p);
@@ -142,7 +133,6 @@ public class LogActivity extends AppCompatActivity {
     public void floatBtnClicked(View v){
         List<Fragment> b = getSupportFragmentManager().getFragments();
         for(Fragment frag : b){
-            System.out.println(frag);
             if(frag instanceof NavHostFragment){
                 NavController nav = NavHostFragment.findNavController(frag);
                 nav.navigate(R.id.action_itemFragment_to_createPostFragment);
@@ -159,7 +149,6 @@ public class LogActivity extends AppCompatActivity {
     public void backBtnClickedPostContent(View v){
         List<Fragment> b = getSupportFragmentManager().getFragments();
         for(Fragment frag : b){
-            System.out.println(frag);
             if(frag instanceof NavHostFragment){
                 NavController nav = NavHostFragment.findNavController(frag);
                 nav.navigate(R.id.action_postContentViewFragment_to_itemFragment);
@@ -176,7 +165,6 @@ public class LogActivity extends AppCompatActivity {
     public void backBtnClickedCreatePost(View v){
         List<Fragment> b = getSupportFragmentManager().getFragments();
         for(Fragment frag : b){
-            System.out.println(frag);
             if(frag instanceof NavHostFragment){
                 NavController nav = NavHostFragment.findNavController(frag);
                 nav.navigate(R.id.action_createPostFragment_to_itemFragment);
@@ -193,7 +181,6 @@ public class LogActivity extends AppCompatActivity {
     public void backBtnLogin(View v){
         List<Fragment> b = getSupportFragmentManager().getFragments();
         for(Fragment frag : b){
-            System.out.println(frag);
             if(frag instanceof NavHostFragment){
                 NavController nav = NavHostFragment.findNavController(frag);
                 nav.navigate(R.id.action_loginFragment_to_mainFragment);
@@ -210,7 +197,6 @@ public class LogActivity extends AppCompatActivity {
     public void backBtnRegister(View v){
         List<Fragment> b = getSupportFragmentManager().getFragments();
         for(Fragment frag : b){
-            System.out.println(frag);
             if(frag instanceof NavHostFragment){
                 NavController nav = NavHostFragment.findNavController(frag);
                 nav.navigate(R.id.action_registerFragment_to_mainFragment);

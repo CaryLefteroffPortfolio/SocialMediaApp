@@ -34,7 +34,6 @@ public class Session {
         editor = prefs.edit();
         editor.putInt(SESSION_KEY, s);
         editor.apply();
-        System.out.println("SESSION KEY: " + SESSION_KEY);
     }
 
     /**
