@@ -63,7 +63,11 @@ public class CreatePostFragment extends Fragment {
             public void onClick(View view) {
                 if(!checkLength(title.getText().toString()) || !checkLength(content.getText().toString())){
                     warnLength();
-                }else {
+                }else if(!checkTitleLength(title.getText().toString())){
+                    warnTitleLength();
+                }else if(!checkContentLength(content.getText().toString())){
+                    warnContentLength();
+                } else {
                     LogActivity la = (LogActivity) getActivity();
                     int uID = la.session.getSession();
                     User u = new User("null", "null", "null");
@@ -95,10 +99,24 @@ public class CreatePostFragment extends Fragment {
      * @return true of the string is empty, false otherwise
      */
     public boolean checkLength(String s){
-        if(s.length() <1 ){
+        if(s.length() < 1){
             return false;
         }
         return true;
+    }
+
+    public boolean checkTitleLength(String s){
+        if(s.length() <= 60){
+            return true;
+        }
+        return false;
+    }
+
+    public boolean checkContentLength(String s){
+        if(s.length() <= 300){
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -108,6 +126,20 @@ public class CreatePostFragment extends Fragment {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle("Field Length");
         builder.setMessage("Fields must be at least 1 character");
+        builder.create().show();
+    }
+
+    private void warnTitleLength() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setTitle("Title Field Length");
+        builder.setMessage("Title cannot exceed 60 characters");
+        builder.create().show();
+    }
+
+    private void warnContentLength(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setTitle("Content Field Length");
+        builder.setMessage("Content cannot exceed 300 characters");
         builder.create().show();
     }
 
