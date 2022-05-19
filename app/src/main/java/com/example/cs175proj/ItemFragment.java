@@ -33,8 +33,6 @@ public class ItemFragment extends Fragment implements MyItemRecyclerViewAdapter.
     MyItemRecyclerViewAdapter adapter;
     FragmentItemListBinding b;
 
-    FloatingActionButton fab;
-
     public ItemFragment() {
     }
 

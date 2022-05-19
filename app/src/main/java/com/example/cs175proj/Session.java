@@ -4,18 +4,28 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
+/**
+ * Session that stores current logged-in user
+ */
 public class Session {
-    //used to store current logged in user
 
     SharedPreferences prefs;
     SharedPreferences.Editor editor;
     String SHARED_PREF_NAME = "session";
     String SESSION_KEY = "session_user";
 
+    /**
+     * Session constructor
+     * @param cntx context of current SHARED_PREF_NAME
+     */
     public Session(Context cntx) {
         prefs = cntx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
     }
 
+    /**
+     * Saves user ID in session
+     * @param user
+     */
     public void saveSession(User user){
         //get user id
         int s = user.getId();
@@ -27,9 +37,12 @@ public class Session {
         System.out.println("SESSION KEY: " + SESSION_KEY);
     }
 
+    /**
+     * Gets current logged-in User ID .
+     * Returns -1 if there is not a logged-in User.
+     * @return id of logged-in User
+     */
     public int getSession(){
-        //return user id of session
-        //return -1 if no current user
         return prefs.getInt(SESSION_KEY, -1);
     }
 }

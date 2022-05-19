@@ -24,12 +24,24 @@ import android.widget.ImageButton;
 
 import com.google.android.material.navigation.NavigationView;
 
-
+/**
+ * Register Page Fragment.
+ * Validates inputs and routes to ItemFragment.
+ * Stores logged in User in session.
+ */
 public class RegisterFragment extends Fragment {
 
     ImageButton registerButton;
     EditText regUser, regEmail, regPass;
 
+    /**
+     * Inflates RegisterFragment.
+     * RegisterButton onClickListener() is set to route to ItemFragment.
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return infalted view
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -74,6 +86,9 @@ public class RegisterFragment extends Fragment {
         return view;
     }
 
+    /**
+     * Invalid length of user input Alert
+     */
     private void warnLength() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle("Field Length");
@@ -81,6 +96,9 @@ public class RegisterFragment extends Fragment {
         builder.create().show();
     }
 
+    /**
+     * Username already exists Alert
+     */
     private void warnUser() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle("Username Exists");
@@ -88,6 +106,9 @@ public class RegisterFragment extends Fragment {
         builder.create().show();
     }
 
+    /**
+     * Invalid email Alert
+     */
     private void warnEmail() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle("Invalid email");
@@ -95,11 +116,19 @@ public class RegisterFragment extends Fragment {
         builder.create().show();
     }
 
+    /**
+     * Routes RegisterFragment to ItemFragment
+     */
     public void onClick1(){
         NavController nav = NavHostFragment.findNavController(this);
         nav.navigate(R.id.action_registerFragment_to_itemFragment);
     }
 
+    /**
+     * Checks to see if length of credentials are valid
+     * @param s input of credentials
+     * @return true if valid length, false if invalid
+     */
     public boolean checkLength(String s){
         if(s.length() <3 ){
             return false;
@@ -107,6 +136,11 @@ public class RegisterFragment extends Fragment {
         return true;
     }
 
+    /**
+     * Checks to see if userName exists in the database
+     * @param s input of userName
+     * @return true if valid userName, false if invalid
+     */
     public boolean checkUserName(String s){
         for(User u:((LogActivity) getActivity()).getUsers()){
             if(s.equals(u.getUserName())){
@@ -116,6 +150,11 @@ public class RegisterFragment extends Fragment {
         return true;
     }
 
+    /**
+     * Checks to see if email is of correct format
+     * @param s input of email
+     * @return true if valid email format, false if invalid
+     */
     public boolean checkEmail(String s){
         if(!Patterns.EMAIL_ADDRESS.matcher(s).matches()){
             return false;

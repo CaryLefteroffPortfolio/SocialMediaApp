@@ -14,8 +14,20 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
+/**
+ * Front page Fragment
+ */
 public class MainFragment extends Fragment {
 
+    /**
+     * Inflates the Main Fragment.
+     * LoginButton onClickListener() is set to route to LoginFragment.
+     * RegisterButton onClickListener() is set to route to RegisterFragment.
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return inflated view
+     */
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
@@ -39,15 +51,20 @@ public class MainFragment extends Fragment {
             }
         });
 
-        // Inflate the layout for this fragment
         return view;
     }
 
+    /**
+     * Routes LoginButton to LoginFragment
+     */
     public void onClick1(){
         NavController nav = NavHostFragment.findNavController(this);
         nav.navigate(R.id.action_mainFragment_to_loginFragment);
     }
 
+    /**
+     * Routes RegisterButton to RegisterFragment
+     */
     public void onClick2(){
         NavController nav = NavHostFragment.findNavController(this);
         nav.navigate(R.id.action_mainFragment_to_registerFragment);
