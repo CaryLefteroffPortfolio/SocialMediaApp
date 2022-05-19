@@ -62,9 +62,11 @@ public class PostContentViewFragment extends Fragment {
                 if(curr.hasLiked(post)) {
                     post.unupvote();
                     curr.removeLikedPost(post);
+                    dislikeButton.setEnabled(true);
                     } else {
                     post.upvote();
                     curr.addLikedPost(post);
+                    dislikeButton.setEnabled(false);
                 }
                 numLikes.setText("Likes: " + post.getUpvotes() +
                         " Dislikes: " + post.getDownvotes() );
@@ -74,11 +76,13 @@ public class PostContentViewFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 if(curr.hasDisliked(post)) {
-                post.undownvote();
-                curr.removeDislikedPost(post);
+                    post.undownvote();
+                    curr.removeDislikedPost(post);
+                    likeButton.setEnabled(true);
                 } else {
-                post.downvote();
-                curr.addDislikedPost(post);
+                    post.downvote();
+                    curr.addDislikedPost(post);
+                    likeButton.setEnabled(false);
                 }
                 numLikes.setText("Likes: " + post.getUpvotes() +
                         " Dislikes: " + post.getDownvotes() );
