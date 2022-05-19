@@ -76,4 +76,8 @@ public class Post {
         return this.header;
     }
 
+    public User getOriginalPoster() {
+        return originalPoster;
+    }
+
 }

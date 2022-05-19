@@ -54,7 +54,7 @@ public class PostContentViewFragment extends Fragment {
 
         User curr = la.getUser(la.session.getSession());
 
-        postedBy.setText("Posted by: " + curr.getUserName());
+        postedBy.setText("Posted by: " + post.getOriginalPoster().getUserName());
 
         likeButton.setOnClickListener(new View.OnClickListener() {
             @Override
