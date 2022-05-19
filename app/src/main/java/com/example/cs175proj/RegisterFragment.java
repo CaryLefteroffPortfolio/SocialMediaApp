@@ -68,15 +68,12 @@ public class RegisterFragment extends Fragment {
                 User b = new User(regEmail.getText().toString(),
                         regUser.getText().toString(),
                         regPass.getText().toString());
-                System.out.println("User Created: " + b.toString());
 
                 //add new user
                 ((LogActivity)getActivity()).addUser(b);
-                System.out.println("User added!");
 
                 //update session for logged in user
                 ((LogActivity)getActivity()).updateSession(b);
-                System.out.println("Session Saved!");
 
                 //move to next fragment
                 onClick1();}
@@ -91,8 +88,8 @@ public class RegisterFragment extends Fragment {
      */
     private void warnLength() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle("Field Length");
-        builder.setMessage("Fields must be at least 3 characters");
+        builder.setTitle(R.string.field_length);
+        builder.setMessage(R.string.field_3);
         builder.create().show();
     }
 
@@ -101,8 +98,8 @@ public class RegisterFragment extends Fragment {
      */
     private void warnUser() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle("Username Exists");
-        builder.setMessage("Please enter another username");
+        builder.setTitle(R.string.username_exists);
+        builder.setMessage(R.string.new_username);
         builder.create().show();
     }
 
@@ -111,8 +108,8 @@ public class RegisterFragment extends Fragment {
      */
     private void warnEmail() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle("Invalid email");
-        builder.setMessage("Please enter a valid email address");
+        builder.setTitle(R.string.bad_email);
+        builder.setMessage(R.string.new_email);
         builder.create().show();
     }
 

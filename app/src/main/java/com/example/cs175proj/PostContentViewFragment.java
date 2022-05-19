@@ -67,7 +67,6 @@ public class PostContentViewFragment extends Fragment {
         TextView content = view.findViewById(R.id.Content_Text);
         TextView numLikes = view.findViewById(R.id.votes);
         TextView postedBy = view.findViewById(R.id.posted_by);
-
         User curr = la.getUser(la.session.getSession());
         if (curr.hasLiked(post)) {
             dislikeButton.setEnabled(false);
@@ -76,7 +75,7 @@ public class PostContentViewFragment extends Fragment {
             likeButton.setEnabled(false);
         }
 
-            postedBy.setText("Posted by: " + post.getOriginalPoster().getUserName());
+            postedBy.setText(getString(R.string.posted_by) + post.getOriginalPoster().getUserName());
 
             likeButton.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -90,8 +89,7 @@ public class PostContentViewFragment extends Fragment {
                         curr.addLikedPost(post);
                         dislikeButton.setEnabled(false);
                     }
-                    numLikes.setText("Likes: " + post.getUpvotes() +
-                            " Dislikes: " + post.getDownvotes());
+                    numLikes.setText(getString(R.string.likes_w_colon, post.getUpvotes(), post.getDownvotes()));
                 }
             });
             dislikeButton.setOnClickListener(new View.OnClickListener() {
@@ -106,15 +104,13 @@ public class PostContentViewFragment extends Fragment {
                         curr.addDislikedPost(post);
                         likeButton.setEnabled(false);
                     }
-                    numLikes.setText("Likes: " + post.getUpvotes() +
-                            " Dislikes: " + post.getDownvotes());
+                    numLikes.setText(getString(R.string.likes_w_colon, post.getUpvotes(), post.getDownvotes()));
                 }
             });
 
             title.setText(post.getHeader());
             content.setText(post.getContent());
-            numLikes.setText("Likes: " + post.getUpvotes() +
-                    " Dislikes: " + post.getDownvotes());
+            numLikes.setText(getString(R.string.likes_w_colon, post.getUpvotes(), post.getDownvotes()));
             return view;
         }
 }

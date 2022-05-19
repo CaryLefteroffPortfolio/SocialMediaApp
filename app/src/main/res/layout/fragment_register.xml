@@ -15,7 +15,7 @@
     android:layout_height="wrap_content"
     android:layout_margin="32dp"
     android:gravity="center"
-    android:text= "Create Account"
+    android:text= "@string/create_account"
     android:textSize="40dp"
     android:textColor="#000"
     android:textStyle="bold" />

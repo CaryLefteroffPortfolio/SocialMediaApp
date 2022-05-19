@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Foro</string>
+    <string name="hello_blank_fragment">Hole fragmento en blanco</string>
+    <string name="registerButton">Registro</string>
+    <string name="forumDesc">Logotipo del foro</string>
+    <string name="user">nombre de usuario</string>
+    <string name="password">clave</string>
+    <string name="email">email</string>
+    <string name="logout">cerrar sesión</string>
+    <string name="uninstall">desinstalar</string>
+    <string name="title">TÍTULO</string>
+    <string name="postTitle">título</string>
+    <string name="postContent">contenido</string>
+    <string name="dislike">" Disgusto"</string>
+    <string name="like">Me gusta</string>
+    <string name="content">CONTENIDO</string>
+    <string name="of_upvotes_likes"># de votos a favor/me gustas</string>
+    <string name="post_title">Título</string>
+    <string name="post_content">" Contenido"</string>
+    <string name="submit">" Entregar"</string>
+    <string name="posted_by_xyz">Publicado por: XYZ</string>
+    <string name="content_field_length">Longitud del campo de contenido</string>
+    <string name="content_exceed_300">" El contenido no puede exceder los 300 caracteres"</string>
+    <string name="title_field_length">Longitud del campo de título</string>
+    <string name="title_exceed_60">" El título no puede exceder los 60 caracteres"</string>
+    <string name="field_length">Longitud del campo</string>
+    <string name="field_min">Los campos deben tener al menos 1 carácter</string>
+    <string name="bad_cred">Credenciales incorrectas</string>
+    <string name="try_again">Inténtalo de nuevo</string>
+    <string name="posted_by">" Publicado por: "</string>
+    <string name="likes_w_colon">"Gustos: %d Difícil: %d"</string>
+    <string name="field_3">" Los campos deben tener al menos 3 caracteres"</string>
+    <string name="username_exists">El nombre de usuario existe</string>
+    <string name="new_username">" Por favor ingrese otro nombre de usuario"</string>
+    <string name="bad_email">" Email inválido"</string>
+    <string name="new_email">" Por favor, introduce una dirección de correo electrónico válida"</string>
+    <string name="create_account">Crear una cuenta</string>
+    <string name="login">" Acceso"</string>
+</resources>

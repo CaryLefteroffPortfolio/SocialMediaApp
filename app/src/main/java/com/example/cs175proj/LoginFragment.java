@@ -48,13 +48,10 @@ public class LoginFragment extends Fragment {
             public void onClick(View view) {
                 User b = checkUser();
                 if (b == null) {
-                    System.out.println("NULL USER");
                     warn();
                 } else {
                     ((LogActivity) getActivity()).updateSession(b);
-                    System.out.println("Session Saved!");
                     int u = ((LogActivity) getActivity()).session.getSession();
-                    System.out.println("User ID: " + u + " is logged in");
                     onClick1();
                 }
             }
@@ -64,10 +61,8 @@ public class LoginFragment extends Fragment {
              * @return
              */
             private User checkUser() {
-                System.out.println("Looking for " + logUser.getText().toString());
                 for (User a : ((LogActivity) getActivity()).getUsers()) {
                     if (a.getUserName().equals(logUser.getText().toString())) {
-                        System.out.println("FOUND");
                         if (a.getPassword().equals(logPass.getText().toString())) {
                             return a;
                         }
@@ -85,8 +80,8 @@ public class LoginFragment extends Fragment {
      */
     private void warn() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle("Incorrect Credentials");
-        builder.setMessage("Please try again");
+        builder.setTitle(R.string.bad_cred);
+        builder.setMessage(R.string.try_again);
         builder.create().show();
     }
 

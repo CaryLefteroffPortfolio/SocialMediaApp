@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="32dp"
         android:gravity="center"
-        android:text="Login"
+        android:text="@string/login"
         android:textColor="#000"
         android:textSize="40dp"
         android:textStyle="bold" />
@@ -63,7 +63,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="140dp"
         android:background="@drawable/ic_baseline_arrow_forward_24"
-        android:contentDescription="@string/loginButton"
+        android:contentDescription="@string/login"
         android:gravity="center"
         tools:ignore="TouchTargetSizeCheck" />
 

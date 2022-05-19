@@ -1,8 +1,6 @@
 <resources>
     <string name="app_name">Forum</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="loginButton">Login</string>
     <string name="registerButton">Register</string>
     <string name="forumDesc">Forum Logo</string>
     <string name="user">username</string>
@@ -21,4 +19,21 @@
     <string name="post_content">Content</string>
     <string name="submit">Submit</string>
     <string name="posted_by_xyz">Posted By: XYZ</string>
+    <string name="content_exceed_300">Content cannot exceed 300 characters</string>
+    <string name="title_field_length">Title Field Length</string>
+    <string name="field_length">Field Length</string>
+    <string name="field_min">Fields must be at least 1 character</string>
+    <string name="content_field_length">Content Field Length</string>
+    <string name="title_exceed_60">Title cannot exceed 60 characters</string>
+    <string name="bad_cred">Incorrect Credentials</string>
+    <string name="try_again">Please try again</string>
+    <string name="posted_by">Posted by: </string>
+    <string name="likes_w_colon">Likes: %d Dislikes: %d</string>
+    <string name="field_3">Fields must be at least 3 characters</string>
+    <string name="username_exists">Username Exists</string>
+    <string name="new_username">Please enter another username</string>
+    <string name="bad_email">Invalid email</string>
+    <string name="new_email">Please enter a valid email address</string>
+    <string name="create_account">Create Account</string>
+    <string name="login">Login</string>
 </resources>

@@ -134,8 +134,8 @@ public class CreatePostFragment extends Fragment {
      */
     private void warnLength() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle("Field Length");
-        builder.setMessage("Fields must be at least 1 character");
+        builder.setTitle(R.string.field_length);
+        builder.setMessage(R.string.field_min);
         builder.create().show();
     }
 
@@ -144,8 +144,8 @@ public class CreatePostFragment extends Fragment {
      */
     private void warnTitleLength() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle("Title Field Length");
-        builder.setMessage("Title cannot exceed 60 characters");
+        builder.setTitle(R.string.title_field_length);
+        builder.setMessage(R.string.title_exceed_60);
         builder.create().show();
     }
 
@@ -154,8 +154,8 @@ public class CreatePostFragment extends Fragment {
      */
     private void warnContentLength(){
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle("Content Field Length");
-        builder.setMessage("Content cannot exceed 300 characters");
+        builder.setTitle(R.string.content_field_length);
+        builder.setMessage(R.string.content_exceed_300);
         builder.create().show();
     }
 
