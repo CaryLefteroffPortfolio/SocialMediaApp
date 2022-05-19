@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">CS175Proj</string>
+    <string name="app_name">Forum</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="loginButton">Login</string>
@@ -20,4 +20,5 @@
     <string name="post_title">Title</string>
     <string name="post_content">Content</string>
     <string name="submit">Submit</string>
+    <string name="posted_by_xyz">Posted By: XYZ</string>
 </resources>

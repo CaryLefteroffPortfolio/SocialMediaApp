@@ -45,38 +45,45 @@ public class PostContentViewFragment extends Fragment {
         TextView title = view.findViewById(R.id.title_text);
         TextView content = view.findViewById(R.id.Content_Text);
         TextView numLikes = view.findViewById(R.id.votes);
+        TextView postedBy = view.findViewById(R.id.posted_by);
 
         User curr = la.getUser(la.session.getSession());
+
+        postedBy.setText("Posted by: " + curr.getUserName());
 
         likeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(curr.hasLiked(post)) {
-                    post.downvote();
+                    post.unupvote();
                     curr.removeLikedPost(post);
                     } else {
                     post.upvote();
                     curr.addLikedPost(post);
-                    }
-                numLikes.setText("Likes: " + String.valueOf(post.getUpvotes()));
+                }
+                numLikes.setText("Likes: " + post.getUpvotes() +
+                        " Dislikes: " + post.getDownvotes() );
             }
         });
         dislikeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(curr.hasDisliked(post)) {
-                post.upvote();
+                post.undownvote();
                 curr.removeDislikedPost(post);
                 } else {
                 post.downvote();
                 curr.addDislikedPost(post);
                 }
+                numLikes.setText("Likes: " + post.getUpvotes() +
+                        " Dislikes: " + post.getDownvotes() );
             }
         });
 
         title.setText(post.getHeader());
         content.setText(post.getContent());
-        numLikes.setText("Likes: " + String.valueOf(post.getUpvotes()));
+        numLikes.setText("Likes: " + post.getUpvotes() +
+                " Dislikes: " + post.getDownvotes() );
         return view;
     }
 

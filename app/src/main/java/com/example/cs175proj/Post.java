@@ -9,6 +9,7 @@ public class Post {
     private String content;
     private String header;
     private int upvotes;
+    private int downvotes;
     private User originalPoster;
     private int id;
 
@@ -16,6 +17,7 @@ public class Post {
         this.originalPoster = originalPoster;
         this.content = content;
         upvotes = 0;
+        downvotes = 0;
         this.header = header;
         originalPoster.addPost(this);
         id = POST_ID++;
@@ -35,14 +37,26 @@ public class Post {
         return upvotes;
     }
 
+    public int getDownvotes() { return downvotes; }
+
     public void upvote() {
         upvotes++;
         originalPoster.upvote();
     }
 
     public void downvote() {
+        downvotes++;
+        originalPoster.downvote();
+    }
+
+    public void unupvote() {
         upvotes--;
         originalPoster.downvote();
+    }
+
+    public void undownvote() {
+        downvotes--;
+        originalPoster.upvote();
     }
 
     public void setIndex(int index) {

@@ -22,7 +22,10 @@ import java.util.List;
 
 public class LogActivity extends AppCompatActivity {
 
+    //
     ArrayList<User> users = new ArrayList<>();
+
+
     private static ArrayList<Post> posts = new ArrayList<>();
 
     Session session;
@@ -54,7 +57,6 @@ public class LogActivity extends AppCompatActivity {
         int getSession = session.getSession();
         if(getSession != -1){
             //logged in
-
         }else{
 
         }
